@@ -228,6 +228,7 @@ a{
 .pedido-detalle{
 	padding: 10px;
 	width: calc(100% - 220px);
+	background: #fff;
 }
 .pedido-detalle h3,
 .pedido-detalle p{
@@ -258,4 +259,7 @@ input[type="radio"]{
 }
 .content-page h4{
 	margin: 5px 0;
+}
+a{
+	color: #fff;
 }

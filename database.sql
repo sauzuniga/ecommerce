@@ -10,3 +10,13 @@ CREATE TABLE PRODUCTO(
 alter table PRODUCTO add rutimapro varchar(100) null;
 INSERT INTO PRODUCTO (nompro,despro,prepro,estado,rutimapro)
 VALUES ('Consola famicom','Primera consola de nintendo en usar cartuchos','90.99',1,'famicom.jpg')
+create table PEDIDO(
+	idped int not null AUTO_INCREMENT,
+	iddusu int not null,
+	idpro int not null,
+	fecped datetime not null,
+	estado int not null,
+	dirusuped varchar(50) not null,
+	telusuped varchar(12) not null,
+	PRIMARY KEY (codped)
+);

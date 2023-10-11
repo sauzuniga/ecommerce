@@ -22,7 +22,9 @@
             if ($user) {
                 if (password_verify($password, $user["clave"])) {
                     session_start();
-                    $_SESSION["user"] = "yes";
+                    $_SESSION["iduser"] =$user['id'];
+                    $_SESSION["user"] =$user['nombre_completo'];
+                    $_SESSION["email"] =$user['email'];
                     header("Location: index.php");
                     die();
                 }else{

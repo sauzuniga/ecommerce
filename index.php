@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION["user"])) {
-   header("Location: login.php");
-}
+//if (!isset($_SESSION["user"])) {
+  // header("Location: login.php");
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +20,26 @@ if (!isset($_SESSION["user"])) {
         <input type="text" id="idbusqueda" placeholder="¿Que necesitas?">
         <button class="btn-main btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
+        <a href="logout.php" class="btn-warning">logout</a>
+
         <div class="options-place">
+        <?php
+        if (isset($_SESSION['iduser'])) {
+            echo
+				'<div class="item-option"><i class="fa fa-user-circle-o" aria-hidden="true"></i><p>'.$_SESSION['user'].'</p></div>';
+                
+        } else {
+            # code...
+        ?>
         <div class="item-option" title="Registrarse"><i class="fa fa-user" aria-hidden="true"></i>
-</div>
-<div class="item-option" title="Ingresar"><i class="fa fa-sign-in" aria-hidden="true"></i>
-</div>
-<div class="item-option" title="Mis compras"><i class="fa fa-shopping-cart" aria-hidden="true"></i></i>
-</div>
+       </div>
+        <div class="item-option" title="Ingresar"><i class="fa fa-sign-in" aria-hidden="true"></i>
+        </div>
+        <?php
+         }
+        ?>
+<div class="item-option" title="Mis compras">
+    <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 </div>
 
     </header>
@@ -73,7 +86,7 @@ if (!isset($_SESSION["user"])) {
 			//10.99
 			let svalor=valor.toString();
 			let array=svalor.split(".");
-			return "S/. "+array[0]+".<span>"+array[1]+"</span>";
+			return "$/. "+array[0]+".<span>"+array[1]+"</span>";
 		}
 
     </script>

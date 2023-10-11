@@ -19,7 +19,8 @@
 </div>
 <div class="item-option" title="Ingresar"><i class="fa fa-sign-in" aria-hidden="true"></i>
 </div>
-<div class="item-option" title="Mis compras"><i class="fa fa-shopping-cart" aria-hidden="true"></i></i>
+<div class="item-option" title="Mis compras">
+    <a href="carrito.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 </div>
 </div>
 
@@ -32,9 +33,9 @@
 				</div>
 				<div class="part2">
 					<h2 id="idtitle">NOMBRE PRINCIPAL</h2>
-					<h1 id="idprice">S/. 35.<span>99</span></h1>
+					<h1 id="idprice">$. 35.<span>99</span></h1>
 					<h3 id="iddescription">Descripcion del producto</h3>
-					<button >Comprar</button>
+					<button onclick="start_buy()" >Comprar</button>
 				</div>
             </section>
         <div class="title-section">Productos destacados</div>
@@ -90,7 +91,35 @@
 			let array=svalor.split(".");
 			return "S/. "+array[0]+".<span>"+array[1]+"</span>";
 		}
-
+        function start_buy(){
+            $.ajax({
+				url:'servicios/compra/validar_inicio_compra.php',
+				type:'POST',
+				data:{
+					codpro:p
+				},
+				success:function(data){
+					console.log(data);
+					if (data.state) {
+						alert(data.detail)
+					} else {
+						alert(data.detail);
+						if (data.open_login) {
+							open_login();
+							
+						}
+					}
+					
+				},
+				error:function(err){
+					console.error(err);
+				}
+			});
+        }
+		function open_login(){
+			window.location.href="login.php";
+		}
+            
     </script>
 </body>
 </html>
