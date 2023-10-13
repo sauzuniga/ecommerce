@@ -17,7 +17,7 @@ session_start();
 <?php include("layout/header.php") ?>
     <div class="main-content">
         <div class="content-page">
-        <div class="title-section">Productos destacados</div>
+        <div class="title-section">Resultados encontrados para <strong><?php echo $_GET['text']; ?></strong></div>
         <div class="products-list" id="space-list">
             
             </div> 
@@ -26,11 +26,14 @@ session_start();
     </div>
     <script type="text/javascript" src="js/main_script.js"> </script>
     <script type="text/javascript">
+        var text="<?php echo $_GET['text']; ?>";
         $(document).ready(function(){
     $.ajax({
-				url:'servicios/producto/get_all_products.php',
+				url:'servicios/producto/get_all_result.php',
 				type:'POST',
-				data:{},
+				data:{
+                    text:text
+                },
                 success:function(data){
 					console.log(data);
                     let html='';
@@ -47,8 +50,12 @@ session_start();
 							'</a>'+
 						'</div>';
 					}
-                    document.getElementById("space-list").innerHTML=html;
+                    if (html==''){
+                        document.getElementById("space-list").innerHTML="No hay resultados";
 
+                    }else{
+                    document.getElementById("space-list").innerHTML=html;
+                    }
                  },
                  error:function(err){
 					console.error(err);

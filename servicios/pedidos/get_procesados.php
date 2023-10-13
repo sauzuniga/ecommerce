@@ -42,8 +42,8 @@ while($row=mysqli_fetch_array($result)){
     $obj->fecped=$row['fecped'];
 	$obj->dirusuped=$row['dirusuped'];
 	$obj->telusuped=$row['telusuped'];
-	$obj->estado=estadototexto($row['estadopedi']);
-	$obj->estadotext=$row['estadopedi'];
+	$obj->estadotext=estadototexto($row['estadopedi']);
+	$obj->estado=$row['estadopedi'];
 
 	$datos[$i]=$obj;
 	$i++;

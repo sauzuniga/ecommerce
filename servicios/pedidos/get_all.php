@@ -1,20 +1,17 @@
 <?php
 include('../_conexion.php');
 $response=new stdClass();
-function estadototexto($id){
+function estadototexto($id) {
 	switch ($id) {
-		case '1':
-			return 'Por procesar';
-			break;
-		case '2':
-			return 'Por pagar';
-			break;
-
-			default:
-
-			    break;
+	   case '1':
+		  return 'Por procesar';
+	   case '2':
+		  return 'Por pagar';
+	   default:
+		  error_log('Estado no reconocido: ' . $id);
+		  return 'Desconocido';
 	}
-}
+ }
 //$datos=array();
 $datos=[];
 $i=0;

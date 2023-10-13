@@ -8,23 +8,7 @@
 
 </head>
 <body>
-    <header>
-        <div class="logo-place"><img src="assets/niche.png" alt=""></div>
-        <div class="search-place">
-        <input type="text" id="idbusqueda" placeholder="¿Que necesitas?">
-        <button class="btn-main btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </div>
-        <div class="options-place">
-        <div class="item-option" title="Registrarse"><i class="fa fa-user" aria-hidden="true"></i>
-</div>
-<div class="item-option" title="Ingresar"><i class="fa fa-sign-in" aria-hidden="true"></i>
-</div>
-<div class="item-option" title="Mis compras">
-    <a href="carrito.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-</div>
-</div>
-
-    </header>
+<?php include("layout/header.php") ?>
     <div class="main-content">
         <div class="content-page">
             <section>
@@ -45,6 +29,7 @@
         </div>
         </div>
     </div>
+	<script type="text/javascript" src="js/main_script.js"> </script>
     <script type="text/javascript">
 		var p='<?php echo $_GET["p"]; ?>';
 	</script>

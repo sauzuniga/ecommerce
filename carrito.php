@@ -46,7 +46,17 @@
 			<br>
 			<input class="ipt-procom" type="text" id="telusu" placeholder="Telefono">
 			<br>
-			<button onclick="process_purchase()">Confirmar compra</button>
+			<h4>Opciones de pago disponibles</h4>
+			<div class="metodo-pago">
+				<input type="radio" name="tipopago" value="1" id="tipo1">
+				<label for="tipo1">Culqui</label>
+			</div>
+			<div class="metodo-pago">
+				<input type="radio" name="tipopago" value="2" id="tipo2">
+				<label for="tipo1">Paypal</label>
+			</div>
+		
+			<button onclick="process_purchase()" style="margin-top: 5px;">Confirmar compra</button>
 			
 		</div>
 	</div>
@@ -86,20 +96,29 @@
 		function process_purchase(){
 			let dirusu=document.getElementById("dirusu").value;
 			let telusu=$("#telusu").val();
+			let tipopago=1;
+			if (document.getElementById("tipo2").checked) {
+				tipopago=2;
+			}
 			if (dirusu=="" || telusu=="" ){
 				alert("Necesita completar los campos")
 			}else{
+				if (!document.getElementById("tipo1").checked &&
+					!document.getElementById("tipo2").checked) {
+					alert("Escoja un metodo de pago!");
+				}else{
 				$.ajax({
 				url:'servicios/pedidos/confirmar.php',
 				type:'POST',
 				data:{
 					dirusu:dirusu,
-					telusu:telusu
+					telusu:telusu,
+					tipopago:tipopago
 				},
 				success:function(data){
 					console.log(data);
 					if (data.state) {
-						window.location.href=pedido.php
+						window.location.href="pedido.php"
 					}else{
 						alert(data.detail);
 					}
@@ -109,8 +128,10 @@
 					console.error(err);
 				}
 			});
+			 }
 			}
 		}
 	</script>
+	
 </body>
 </html>
