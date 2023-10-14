@@ -82,6 +82,7 @@
 								'<p><b>Estado:</b> '+data.datos[i].estado+'</p>'+
 								'<p><b>Dirección:</b> '+data.datos[i].dirusuped+'</p>'+
 								'<p><b>Celular:</b> '+data.datos[i].telusuped+'</p>'+
+								'<button class="btn-delete-cart" onclick="delete_product('+data.datos[i].idped+')">Eliminar</button>'+
 							'</div>'+
 						'</div>';
 						
@@ -93,6 +94,30 @@
 				}
 			});
 		});
+		function delete_product(idped){
+			$.ajax({
+				url:'servicios/pedidos/delete_pedido.php',
+				type:'POST',
+				data:{
+					idped:idped,
+					
+					
+				},
+				success:function(data){
+					console.log(data);
+					if (data.state) {
+						window.location.reload();
+					}else{
+						alert(data.detail);
+					}
+					
+				},
+				error:function(err){
+					console.error(err);
+				}
+			});
+
+		}
 		function process_purchase(){
 			let dirusu=document.getElementById("dirusu").value;
 			let telusu=$("#telusu").val();

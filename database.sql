@@ -18,5 +18,5 @@ create table PEDIDO(
 	estado int not null,
 	dirusuped varchar(50) not null,
 	telusuped varchar(12) not null,
-	PRIMARY KEY (codped)
+	PRIMARY KEY (idped)
 );

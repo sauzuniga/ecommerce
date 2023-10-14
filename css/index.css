@@ -263,3 +263,8 @@ input[type="radio"]{
 a{
 	color: #fff;
 }
+.btn-delete-cart{
+	text-decoration: underline;
+	color: blue ;
+	background: transparent;
+}
