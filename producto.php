@@ -5,6 +5,7 @@
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body>
@@ -76,31 +77,40 @@
 			let array=svalor.split(".");
 			return "S/. "+array[0]+".<span>"+array[1]+"</span>";
 		}
-        function start_buy(){
-            $.ajax({
-				url:'servicios/compra/validar_inicio_compra.php',
-				type:'POST',
-				data:{
-					codpro:p
-				},
-				success:function(data){
-					console.log(data);
-					if (data.state) {
-						alert(data.detail)
-					} else {
-						alert(data.detail);
-						if (data.open_login) {
-							open_login();
-							
-						}
-					}
-					
-				},
-				error:function(err){
-					console.error(err);
-				}
-			});
+		function start_buy() {
+    $.ajax({
+        url: 'servicios/compra/validar_inicio_compra.php',
+        type: 'POST',
+        data: {
+            codpro: p
+        },
+        success: function (data) {
+            console.log(data);
+            if (data.state) {
+                // Mostrar una alerta de éxito cuando se logra la operación
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Operación exitosa',
+                    text: 'El producto se ha agregado al carrito.',
+                });
+            } else {
+                // Mostrar una alerta de error en caso de error
+                Swal.fire({
+                    title: 'Error',
+                    text: data.detail,
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        open_login(); // Redirige si el usuario confirma la alerta
+                    }
+                });
+            }
+        },
+        error: function (err) {
+            console.error(err);
         }
+    });
+}
+
 		function open_login(){
 			window.location.href="login.php";
 		}

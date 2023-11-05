@@ -81,7 +81,7 @@
             </div>
         </form>
         <div>
-        <div><p>Already Registered <a href="login.php">Login Here</a></p></div>
+        <div><p>Ya tiene cuenta <a href="login.php">Inicie sesión aqui</a></p></div>
       </div>
     </div>
 </body>

@@ -12,6 +12,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
 	<header>
@@ -126,11 +128,37 @@
 				tipopago=2;
 			}
 			if (dirusu=="" || telusu=="" ){
-				alert("Necesita completar los campos")
+				Swal.fire({
+                            title: '<strong>ALERTA</strong>',
+                            icon: 'info',
+                            html:
+                                'Por favor complete los campos ' +
+                                '<a href="//sweetalert2.github.io">links</a> ',
+                            showCloseButton: true,
+                           
+                            focusConfirm: false,
+                            confirmButtonText:
+                            '<i class="fa fa-thumbs-up"></i> Great!',
+                            confirmButtonAriaLabel: 'Thumbs up, great!',
+
+                        })
 			}else{
 				if (!document.getElementById("tipo1").checked &&
 					!document.getElementById("tipo2").checked) {
-					alert("Escoja un metodo de pago!");
+						Swal.fire({
+                            title: '<strong>ALERTA</strong>',
+                            icon: 'info',
+                            html:
+                                'Escoja un metodo de pago ' +
+                                '<a href="//sweetalert2.github.io">links</a> ',
+                            showCloseButton: true,
+                           
+                            focusConfirm: false,
+                            confirmButtonText:
+                            '<i class="fa fa-thumbs-up"></i> Great!',
+                            confirmButtonAriaLabel: 'Thumbs up, great!',
+
+                        })
 				}else{
 				$.ajax({
 				url:'servicios/pedidos/confirmar.php',

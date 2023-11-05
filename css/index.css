@@ -268,3 +268,20 @@ a{
 	color: blue ;
 	background: transparent;
 }
+@media (max-width: 800px) {
+    .product-box {
+        width: calc(100% / 4 - 20px);
+    }
+}
+
+@media (max-width: 772px) {
+    .product-box {
+        width: calc(100% / 3 - 20px);
+    }
+}
+
+@media (max-width: 550px) {
+    .product-box {
+        width: calc(100% / 2 - 20px);
+    }
+}
