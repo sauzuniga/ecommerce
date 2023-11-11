@@ -10,17 +10,17 @@
         <?php
         if (isset($_SESSION['iduser'])) {
             echo
-				'<div class="item-option"><i class="fa fa-user-circle-o" aria-hidden="true"></i><p>'.$_SESSION['user'].'</p></div>';
+				'<div class="item-option" onclick="show_options()"><i class="fa fa-user-circle-o" aria-hidden="true"></i><p>'.$_SESSION['user'].'</p></div>';
                 
         } else {
             # code...
         ?>
-        <div class="item-option" title="Registrarse">
-            <a href="registration.php"><i class="fa fa-user" aria-hidden="true"></i></a>
-      </div>
+       
       <div class="item-option" title="Ingresar">
             <a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
       </div>
+     
+    
         
         <?php
          }
@@ -28,5 +28,28 @@
 <div class="item-option" title="Mis compras">
     <a href="carrito.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 </div>
+</div>
 
 </header>
+<script type="text/javascript">
+    function show_options(){
+        if (document.getElementById("ctrl-menu").style.display=="none") {
+            document.getElementById("ctrl-menu").style.display="block";
+
+        }else{
+            document.getElementById("ctrl-menu").style.display="none";
+         }
+       
+        
+
+    }
+</script>
+<div class="menu-opciones" id="ctrl-menu" style="display: none;">
+    <ul>
+      <li>
+        <a href="logout.php">
+            <div class="menu-opcion">Cerrar sesión</div>
+        </a>
+    </li>
+       </ul>
+</div>

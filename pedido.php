@@ -28,6 +28,7 @@
 			 <p><b>Nota:</b>Para confirmar la compra debe realizar el deposito con el monto total</p>
 		</div>
 	</div>
+	<?php include("layout/_footer.php") ?>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$.ajax({

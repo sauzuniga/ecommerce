@@ -26,6 +26,7 @@ session_start();
         </div>
         </div>
     </div>
+    <?php include("layout/_footer.php") ?>
     <script type="text/javascript" src="js/main_script.js"> </script>
     <script type="text/javascript">
         $(document).ready(function(){
