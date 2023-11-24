@@ -2,18 +2,19 @@
 
 Sitio de ecommerce b2c(negocio a consumidor) enfocado en un nicho en específico, el cual es el mundo de los dispositivos electrónicos vintages. El sitio nace como respuesta a la poca cantidad de sitios web en los cuales se pueden adquirir este tipo de dispositivos.
 ### Funcionalidades
-**Catálogo de productos:** En este apartado se muestran todos los productos que se encuentran registrados en la base de datos del sitio.
-**Busqueda de productos:** El cliente puede buscar el producto de su elección ingresando el nombre del producto o parte de este en la barra de búsqueda.
-**Vista de producto:** El cliente puede seleccionar un producto y acceder a la información detallada de ese producto.
-**Registro de cliente:** El cliente puede registrarse para obtener una cuenta en el sitio y así poder comprar los productos que desee.
-**Login:** El cliente puede logearse con las credenciales validas que generó al registrarse en el sitio.
-** Agregar al carrito:** El cliente puede seleccionar un producto y agregarlo a su carrito de compra, para posteriormente proceder con el pago.
-**Gestión de carrito:** El cliente puede modificar la cantidad de productos en el, y eliminar productos.
-**Vista de pedido:** El cliente puede revisar la información de su pedido antes de proceder a pagar.
-**Proceso de pago intuitivo:** El cliente puede completar fácilmente el proceso de pago con pasos claros y seguros.
-**FAQ y Guías:** El cliente puede accede a preguntas frecuentes y guías detalladas para resolver dudas comunes.
-**Footer:** El cliente puede visualizar un footer el cual contiene infomación extra sobre el sitio .
+**Catálogo de productos:** En este apartado se muestran todos los productos que se encuentran registrados en la base de datos del sitio.  
+**Búsqueda de productos:** El cliente puede buscar el producto de su elección ingresando el nombre del producto o parte de este en la barra de búsqueda.  
+**Vista de producto:** El cliente puede seleccionar un producto y acceder a la información detallada de ese producto.  
+**Registro de cliente:** El cliente puede registrarse para obtener una cuenta en el sitio y así poder comprar los productos que desee.  
+**Login:** El cliente puede logearse con las credenciales válidas que generó al registrarse en el sitio.  
+**Agregar al carrito:** El cliente puede seleccionar un producto y agregarlo a su carrito de compra, para posteriormente proceder con el pago.  
+**Gestión de carrito:** El cliente puede modificar la cantidad de productos en él y eliminar productos.  
+**Vista de pedido:** El cliente puede revisar la información de su pedido antes de proceder a pagar.  
+**Proceso de pago intuitivo:** El cliente puede completar fácilmente el proceso de pago con pasos claros y seguros.  
+**FAQ y Guías:** El cliente puede acceder a preguntas frecuentes y guías detalladas para resolver dudas comunes.  
+**Footer:** El cliente puede visualizar un footer el cual contiene información extra sobre el sitio.  
 **CRUD de productos:** Se pueden leer, agregar, actualizar, y eliminar productos, usando un software complementario llamado gestion_ecommerce.
+
 
 ### Pre-requisitos 📋
 
