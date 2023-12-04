@@ -62,7 +62,7 @@ session_start();
 			//10.99
 			let svalor=valor.toString();
 			let array=svalor.split(".");
-			return "$/. "+array[0]+".<span>"+array[1]+"</span>";
+			return "$ "+array[0]+".<span>"+array[1]+"</span>";
 		}
 
     </script>

@@ -51,7 +51,7 @@
 			<h4>Opciones de pago disponibles</h4>
 			<div class="metodo-pago">
 				<input type="radio" name="tipopago" value="1" id="tipo1">
-				<label for="tipo1">Culqui</label>
+				<label for="tipo1">Otro metodo de pago</label>
 			</div>
 			<div class="metodo-pago">
 				<input type="radio" name="tipopago" value="2" id="tipo2">
