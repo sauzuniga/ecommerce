@@ -10,6 +10,10 @@
                 <a href="" target="_blank">Facebook</a>
                 <br>
                 <a href="" target="_blank">Whatsapp: 4567 4564</a>
+                <br>
+                <a href="faqs.php" target="_blank">FAQS</a>
+                <br>
+                <a href="pregunta.php" target="_blank">Enviar una pregunta</a>
             </div>
         </div>
     <center> <h5> Niche Marketplace -Derechos reservados 2023 </h5></center>

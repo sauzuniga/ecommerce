@@ -35,9 +35,14 @@ session_start();
 				data:{
                     text:text
                 },
+                /**
+                 * Manejar la respuesta exitosa de la solicitud AJAX.
+                 * @param {Object} data - Datos devueltos por la solicitud AJAX.
+                 */
                 success:function(data){
 					console.log(data);
                     let html='';
+                    // Construcción de la lista de productos con los resultados de la búsqueda
 					for (var i = 0; i < data.datos.length; i++) {
 						html+=
 						'<div class="product-box">'+
@@ -51,6 +56,7 @@ session_start();
 							'</a>'+
 						'</div>';
 					}
+                    // Mostrar "No hay resultados" si no hay elementos HTML
                     if (html==''){
                         document.getElementById("space-list").innerHTML="No hay resultados";
 
@@ -58,11 +64,25 @@ session_start();
                     document.getElementById("space-list").innerHTML=html;
                     }
                  },
+                  /**
+                 * Manejar errores en la solicitud AJAX.
+                 * @param {Object} err - Objeto de error.
+                 */
                  error:function(err){
 					console.error(err);
 				}
               });
             });
+             /**
+              * Función para formatear el precio.
+              *
+              * @param {number} valor - Valor del precio a formatear.
+              * @returns {string} - Precio formateado con formato "$ XX.YY".
+              *
+              * @example
+              * // Ejemplo de uso:
+              * const precioFormateado = formato_precio(25.99);
+              */                                                    
             function formato_precio(valor){
 			//10.99
 			let svalor=valor.toString();

@@ -12,15 +12,24 @@
 <body>
     <div class="container">
         <?php
+         /**
+          * Maneja el envío del formulario de inicio de sesión.
+          * Valida las credenciales del usuario y crea una sesión si las credenciales son válidas.
+          */
         if (isset($_POST["login"])) {
            $email = $_POST["email"];
            $password = $_POST["password"];
             require_once "servicios/_conexion.php";
+            // Consulta SQL para obtener el usuario con el email proporcionado
             $sql = "SELECT * FROM clientes WHERE email = '$email'";
             $result = mysqli_query($con, $sql);
             $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            // Verifica si el usuario existe
             if ($user) {
+                
+                 // Verifica si la contraseña proporcionada coincide con la almacenada en la base de datos
                 if (password_verify($password, $user["clave"])) {
+                      // Inicia la sesión y almacena información del usuario
                     session_start();
                     $_SESSION["iduser"] =$user['id'];
                     $_SESSION["user"] =$user['nombre_completo'];

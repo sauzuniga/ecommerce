@@ -4,7 +4,7 @@ include 'servicios/connection.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pregunta = $_POST["pregunta"];
 
-    // Puedes realizar validaciones adicionales aquí
+   
 
     $sql = "INSERT INTO faqs_clientes (pregunta) VALUES ('$pregunta')";
 

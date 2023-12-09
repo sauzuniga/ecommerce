@@ -1,6 +1,6 @@
 <?php
     
-    $conn = new PDO("mysql:host=localhost;dbname=sistema_ecommerce", "root", "");
+    $conn = new PDO("mysql:host=localhost;dbname=sistema_ecommerce", "root", "usbw");
     
     $sql = "SELECT * FROM faqs";
     $statement = $conn->prepare($sql);
@@ -34,7 +34,6 @@
                                 </a>
                             </h4>
                         </div>
-                       
                         <div id="faq-<?php echo $faq['id']; ?>" class="panel-collapse collapse" aria-expanded="false" role="tabpanel">
                             <div class="panel-body">
                                 <div class="text-accordion">

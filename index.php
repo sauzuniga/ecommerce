@@ -1,8 +1,10 @@
 <?php
+/**
+ * Página principal del sitio web de ecommerce.
+ *
+ * @package Ecommerce
+ */
 session_start();
-//if (!isset($_SESSION["user"])) {
-  // header("Location: login.php");
-//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +18,7 @@ session_start();
 
 </head>
 <body>
+     <!-- Inclución del encabezado de la página -->
 <?php include("layout/header.php") ?>
     <div class="main-content">
         <div class="content-page">
@@ -26,9 +29,14 @@ session_start();
         </div>
         </div>
     </div>
+    <!-- Inclución del footer de la página -->
     <?php include("layout/_footer.php") ?>
     <script type="text/javascript" src="js/main_script.js"> </script>
     <script type="text/javascript">
+         /**
+         * Función que se ejecuta cuando el documento está listo.
+         * Realiza una solicitud AJAX para obtener la lista de productos destacados.
+         */
         $(document).ready(function(){
     $.ajax({
 				url:'servicios/producto/get_all_products.php',
@@ -51,13 +59,25 @@ session_start();
 						'</div>';
 					}
                     document.getElementById("space-list").innerHTML=html;
+                    
 
                  },
                  error:function(err){
 					console.error(err);
 				}
               });
+              
             });
+            /**
+            * Función para formatear el precio.
+            *
+            * @param {number} valor - Valor del precio a formatear.
+            * @returns {string} - Precio formateado con formato "$ XX.YY".
+            *
+            * @example
+            * // Ejemplo de uso:
+            * const precioFormateado = formato_precio(25.99);
+            */                                                    
             function formato_precio(valor){
 			//10.99
 			let svalor=valor.toString();

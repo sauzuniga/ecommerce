@@ -12,6 +12,11 @@
 <body>
     <div class="container">
         <?php
+        /**
+         * Maneja el envío del formulario de registro.
+         * Valida la entrada del usuario, verifica la existencia del correo electrónico
+         * y inserta un nuevo registro en la base de datos.
+         */
         if (isset($_POST["submit"])) {
            $fullName = $_POST["fullname"];
            $email = $_POST["email"];
@@ -21,7 +26,7 @@
            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
            $errors = array();
-           
+           // Validación de los input del usuario
            if (empty($fullName) OR empty($email) OR empty($password) OR empty($passwordRepeat)) {
             array_push($errors,"All fields are required");
            }
@@ -34,6 +39,7 @@
            if ($password!==$passwordRepeat) {
             array_push($errors,"Password does not match");
            }
+           // Verifica si el el email esta registrado
            require_once "servicios/_conexion.php";
            $sql = "SELECT * FROM clientes WHERE email = '$email'";
            $result = mysqli_query($con, $sql);
@@ -41,6 +47,7 @@
            if ($rowCount>0) {
             array_push($errors,"Email already exists!");
            }
+           // Muestra los errores o inserta el nuevo registro de usuario
            if (count($errors)>0) {
             foreach ($errors as  $error) {
                 echo "<div class='alert alert-danger'>$error</div>";
@@ -51,6 +58,7 @@
             $stmt = mysqli_stmt_init($con);
             $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
             if ($prepareStmt) {
+                // Vincula parámetros y ejecuta la declaración
                 mysqli_stmt_bind_param($stmt,"sss",$fullName, $email, $passwordHash);
                 mysqli_stmt_execute($stmt);
                 echo "<div class='alert alert-success'>You are registered successfully.</div>";

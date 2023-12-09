@@ -36,6 +36,12 @@
 	</script>
 
     <script type="text/javascript">
+        /**
+ * Función que se ejecuta cuando el documento está listo.
+ * Realiza una solicitud AJAX para obtener productos y actualizar la interfaz de usuario.
+ * @function
+ * @name documentReady
+ */
         $(document).ready(function(){
     $.ajax({
 				url:'servicios/producto/get_all_products.php',
@@ -71,12 +77,27 @@
 				}
               });
             });
+             /**
+              * Función para formatear el precio.
+              *
+              * @param {number} valor - Valor del precio a formatear.
+              * @returns {string} - Precio formateado con formato "$ XX.YY".
+              *
+              * @example
+              * // Ejemplo de uso:
+              * const precioFormateado = formato_precio(25.99);
+              */                                                    
             function formato_precio(valor){
 			//10.99
 			let svalor=valor.toString();
 			let array=svalor.split(".");
 			return "$ "+array[0]+".<span>"+array[1]+"</span>";
 		}
+        /**
+         * Función para iniciar el proceso de compra.
+         * @function
+         * @name start_buy
+         */
 		function start_buy() {
     $.ajax({
         url: 'servicios/compra/validar_inicio_compra.php',
@@ -110,7 +131,11 @@
         }
     });
 }
-
+         /**
+         * Función para redirigir a la página de inicio de sesión.
+         * @function
+         * @name open_login
+         */
 		function open_login(){
 			window.location.href="login.php";
 		}

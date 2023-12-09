@@ -1,5 +1,9 @@
 <?php
+
 	session_start();
+	/**
+ * Redirecciona a la página de inicio si el usuario no está autenticado.
+ */
 	if (!isset($_SESSION['iduser'])) {
 		header('location: index.php');
 	}
@@ -64,6 +68,10 @@
 	</div>
 	<?php include("layout/_footer.php") ?>
 	<script type="text/javascript">
+		/**
+         * Llamada AJAX para obtener pedidos del usuario.
+         * @function
+         */
 		$(document).ready(function(){
 			$.ajax({
 				url:'servicios/pedidos/get_all.php',
@@ -97,6 +105,12 @@
 				}
 			});
 		});
+		
+		/**
+         * Elimina un producto del carrito.
+         * @function
+         * @param {number} idped - ID del pedido.
+         */
 		function delete_product(idped){
 			$.ajax({
 				url:'servicios/pedidos/delete_pedido.php',
@@ -121,6 +135,10 @@
 			});
 
 		}
+		 /**
+         * Procesa la compra con la información proporcionada.
+         * @function
+         */
 		function process_purchase(){
 			let dirusu=document.getElementById("dirusu").value;
 			let telusu=$("#telusu").val();

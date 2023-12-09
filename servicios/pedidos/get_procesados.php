@@ -1,6 +1,16 @@
 <?php
 include('../_conexion.php');
 $response=new stdClass();
+/**
+ * Convierte el estado numérico a texto.
+ *
+ * Esta función toma un número que representa el estado y devuelve la representación en texto.
+ *
+ * @param string $id El número del estado.
+ *
+ * @return string La representación en texto del estado.
+ */
+
 function estadototexto($id){
 	switch ($id) {
 		case '1':
